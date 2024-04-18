@@ -24,9 +24,4 @@ class Board
     array_case = [@a1.state,@a2.state,@a3.state,@b1.state,@b2.state,@b3.state,@c1.state,@c2.state,@c3.state]
     BoardView.new(array_case)
   end
-  # binding.pry
 end
-
-# b = Board.new
-# b.a1.put_o
-# b.envoi_info_to_view

@@ -6,7 +6,6 @@ require_relative 'player'
 require_relative 'board_case'
 
 class Game
-  # attr_accessor :
 
   def initialize
     @player1 = Player.new
@@ -17,7 +16,7 @@ class Game
   
   def rounds
     until @player1.statu == "winner" || @player2.statu == "winner" do
-        puts "#{@player1.name} joue x sur quelle case?"
+        puts "#{@player1.name}, veuillez entrer les coordonnées de la case sur laquelle vous voulez poser  votre x:"
         print "> " 
         input = gets.chomp.downcase
         verify_if_the_input_is_valid_or_not(input)
@@ -43,7 +42,7 @@ class Game
         end
         @b.envoi_info_to_view
         break if verify_if_the_player_is_the_winner_or_not == true
-        puts "#{@player2.name} joue x sur quelle case?"
+        puts "#{@player2.name}, veuillez entrer les coordonnées de la case sur laquelle vous voulez poser votre o:"
         print "> "
         input = gets.chomp.downcase
         verify_if_the_input_is_valid_or_not(input)
@@ -72,20 +71,6 @@ class Game
     end
   end
 
-  # def rounds2
-  #   until @player1.statu == "winner" || @player2.statu == "winner" do |input|
-  #     input = gets.chomp.to_i
-  #     @b.input.put_x
-  #     @b.envoi_info_to_view
-  #     verify_if_the_player_is_the_winner_or_not
-      
-  #     input = gets.chomp.to_i
-  #     @b.input.put_o
-  #     @b.envoi_info_to_view
-  #     verify_if_the_player_is_the_winner_or_not
-  #   end
-  # end
-  
   def verify_if_the_player_is_the_winner_or_not
     if (@b.a1.state == @b.a2.state && @b.a2.state == @b.a3.state && @b.a3.state != " " ) || (@b.b1.state == @b.b2.state && @b.b2.state == @b.b3.state && @b.b3.state != " ") || (@b.c1.state == @b.c2.state && @b.c2.state == @b.c3.state && @b.c3.state != " ") || (@b.a1.state == @b.b1.state && @b.b1.state == @b.c1.state && @b.c1.state != " ") || (@b.a2.state == @b.b2.state && @b.b2.state == @b.c2.state && @b.c2.state != " ") || (@b.a3.state == @b.b3.state && @b.b3.state == @b.c3.state && @b.c3.state != " ") || (@b.a1.state == @b.b2.state && @b.b2.state == @b.c3.state && @b.c3.state != " ") || (@b.a3.state == @b.b2.state && @b.b2.state == @b.c1.state&& @b.c1.state != " ") 
       puts "VOUS AVEZ GAGNE!!"
@@ -93,7 +78,8 @@ class Game
       
     elsif @b.a1.state != " " && @b.a2.state != " " && @b.a3.state != " " && @b.b1.state != " " && @b.b2.state != " " && @b.b3.state != " " && @b.c1.state != " " && @b.c2.state != " " && @b.c3.state != " " 
       puts "EGALITE!"
-      
+      puts ""
+      return true
     end
   end
 
@@ -103,5 +89,3 @@ class Game
     end
   end
 end
-
-# Game.new

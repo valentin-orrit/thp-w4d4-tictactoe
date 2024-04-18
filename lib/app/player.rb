@@ -17,10 +17,4 @@ attr_accessor :name, :statu
   def winner
     @statu = "winner"
   end
-
-  
-  
-
 end
-
-# binding.pry
