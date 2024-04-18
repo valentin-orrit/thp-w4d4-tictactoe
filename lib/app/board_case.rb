@@ -6,8 +6,7 @@ class BoardCase
 
   def initialize(case_num)
     @case_name = case_num
-    @state = "empty"
-    #  puts @case_name
+    @state = " "
   end
 
   def get_case_state 
@@ -15,11 +14,18 @@ class BoardCase
   end
 
   def put_x
+    if @state == "x" || @state == "o"
+      puts "NONONO! Interdit! Passe ton tour!"
+    else
     @state = "x"
+    end
   end
 
   def put_o
-    @state = "o"
+    if @state == "x" || @state == "o"
+      puts "NONONO! Interdit! Passe ton tour!"
+    else
+      @state = "o"
+    end
   end
-
 end
